@@ -55,4 +55,8 @@ stop or trip and slow down your dog
     in first screen, no obstacles. then introduce first obstacle in middle of screen, directly in front of where player starts. have small pop up explaining to press 'w,a,s,d' to navigate around the obstacle. 
     pop up will disappear after dog has navigated past the first obstacle
     after that, two rocks will appear, then three, then different obstacles will appear.
-    After running after the bunny for 2 minutes (time subject to change) the game will introduce the bones. first bone will appear. player may choose to collect the bone or not. message will appear stating collecting the bones will get player more points. if player collects the bone, the message will disappear. if player does not collect bone, the message will disappear once bone is off screen. Running after bones will lead the player into perilous situations so they will have to react quickly so as not to loose the bunny
+    After running after the bunny for 2 minutes (time subject to change) the game
+    
+    will introduce the bones. first bone will appear. player may choose to collect the bone or not. message will appear stating collecting the bones will get player more points. if player collects the bone, the message will disappear. if player does not collect bone, the message will disappear once bone is off screen. Running after bones will lead the player into perilous situations so they will have to react quickly so as not to loose the bunny
+
+    ![PXL_20210514_200734222](https://user-images.githubusercontent.com/83434833/118323764-c1a0d780-b4c6-11eb-984f-5b6c79d5b00e.jpg)
