@@ -3,8 +3,9 @@ window.addEventListener("DOMContentLoaded", () => {
     
    //def use keydown for dog movement. 
     document.addEventListener('keydown', (event => {
+        let x = 100
         if (event.key === 'w') {
-            console.log("hello")
+            test.style.left = x + 'px'
         }
     }))
 
