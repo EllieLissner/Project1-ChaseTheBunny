@@ -4,8 +4,9 @@ window.addEventListener("DOMContentLoaded", () => {
     let theBunny = document.querySelector(".bunny")
     let dogPosition = dog.getBoundingClientRect()
     
-    let y = 50
-    let x = -100
+    let yAxisDogPosition = 50
+    let xAxisRockPosition = -100
+    let xAxisBunnyPosition = 50
     let upDownDog = null
     let rockComingAtMe = null
     let bunnyGone = null
@@ -13,11 +14,11 @@ window.addEventListener("DOMContentLoaded", () => {
     //dog vertical movement
     function move (event) {
         if (event.key === 's') {
-            y += 1 
-            dog.style.top = y + '%'
+            yAxisDogPosition += 1 
+            dog.style.top = yAxisDogPosition + '%'
         } else if (event.key === 'w') {
-            y -= 1
-            dog.style.top = y + '%'
+            yAxisDogPosition -= 1
+            dog.style.top = yAxisDogPosition + '%'
         }
        dogPosition = dog.getBoundingClientRect()
     }
@@ -25,14 +26,14 @@ window.addEventListener("DOMContentLoaded", () => {
     //obstacle movement
     function obstacle(event) {
         if(event.key === "d" ) { 
-            x += 10
-            itsARock.style.right = x + 'px'  
+            xAxisRockPosition += 10
+            itsARock.style.right = xAxisRockPosition + 'px'  
         }
     }
 
     function bunnyRuns () {
-        x -= 10
-        theBunny.style.right = x + 'px'
+        xAxisBunnyPosition -= 10
+        theBunny.style.right = xAxisBunnyPosition + 'px'
     }
     
 
@@ -45,7 +46,8 @@ window.addEventListener("DOMContentLoaded", () => {
             rockPosition.bottom > dogPosition.top &&
             rockPosition.top < dogPosition.bottom &&
             rockPosition.right > dogPosition.left) {
-            clearInterval(rockComingAtMe)
+            console.log(itsARock.getBoundingClientRect())
+                clearInterval(rockComingAtMe)
             bunnyGone = setInterval(() => {
                 bunnyRuns()
             }, 100)
