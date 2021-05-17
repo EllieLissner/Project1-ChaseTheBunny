@@ -43,6 +43,16 @@
     right: -100px;
 }
 
+.pointcounter {
+    width: 100px;
+    height: 50px;
+    background-color: coral;
+    position: absolute;
+    right: 0px;
+    font-family: monospace;
+    
+}
+
 @media screen and (min-width: 500px ) {
     .viewscreen {
         width: 800px;

@@ -2,14 +2,16 @@ window.addEventListener("DOMContentLoaded", () => {
     let dog = document.querySelector(".dog")
     let itsARock = document.querySelector(".obst")
     let theBunny = document.querySelector(".bunny")
-    let dogPosition = dog.getBoundingClientRect()
+    let pointCounter = document.querySelector(".pointcounter")
     
+    let dogPosition = dog.getBoundingClientRect()
     let yAxisDogPosition = 50
     let xAxisRockPosition = -100
     let xAxisBunnyPosition = 50
     let upDownDog = null
     let rockComingAtMe = null
     let bunnyGone = null
+    let counter = 0
 
     //dog vertical movement
     function move (event) {
@@ -20,7 +22,7 @@ window.addEventListener("DOMContentLoaded", () => {
             yAxisDogPosition -= 1
             dog.style.top = yAxisDogPosition + '%'
         }
-       dogPosition = dog.getBoundingClientRect()
+        dogPosition = dog.getBoundingClientRect()
     }
    
     //obstacle movement
@@ -54,6 +56,11 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    function pointIncrease () {
+        counter++
+        pointCounter.innerText = `Points: ${counter}`
+    }
+
     //dog keystroke. 
     document.addEventListener('keydown', (event) => {
         upDownDog = setInterval(() => {
@@ -71,6 +78,8 @@ window.addEventListener("DOMContentLoaded", () => {
         rockComingAtMe = setInterval(() => {
             obstacle(event);
             collision()
+            pointIncrease()
         }, 50)
+        
     })
 })
