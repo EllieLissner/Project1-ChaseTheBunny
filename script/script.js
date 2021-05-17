@@ -1,29 +1,68 @@
 window.addEventListener("DOMContentLoaded", () => {
-    let test = document.querySelector(".test")
-    let y = 10
+    let dog = document.querySelector(".dog")
+    let itsARock = document.querySelector(".obst")
+    let dogPosition = dog.getBoundingClientRect()
     
+
+
+    let y = 50
+    let x = -100
+    let upDownDog = null
+
+    //dog vertical movement
     function move (event) {
-      console.log(event)
+        
         if (event.key === 's') {
-            y += 10
-            test.style.top = y + 'px'
-            console.log("moving down")
+            y += 1 
+            dog.style.top = y + '%'
         } else if (event.key === 'w') {
-            y -= 10
-            test.style.top = y + 'px'
-            console.log("moving up")
+            y -= 1
+            dog.style.top = y + '%'
         }
+       dogPosition = dog.getBoundingClientRect()
     }
    
+    //obstacle movement
+    function obstacle(event) {
+        if(event.key === "d" ) {
+            
+            x += 10
+            itsARock.style.right = x + 'px'
+            
+        }
+    }
+
+    function collision() {
+        const rockPosition = itsARock.getBoundingClientRect()
+        console.log({dogPosition: dogPosition.top, rockPosition: rockPosition.top})
+        
+        if (rockPosition.left < dogPosition.right &&
+            rockPosition.bottom > dogPosition.top &&
+            rockPosition.top < dogPosition.bottom &&
+            rockPosition.right > dogPosition.left) {
+            console.log("its a hit")
+        }
+        }
+    
+
    //def use keydown for dog movement. 
     document.addEventListener('keydown', (event) => {
-        let x = setTimeout(() => {
+        let upDownDog = setInterval(() => {
             move(event)
-           }, 5)
+           
+           }, 10)
         
-        
+    document.addEventListener('keyup', () => {
+        clearInterval(upDownDog)
+    })
     } )
-
-    
+    collision()
+    document.addEventListener('keydown', (event) => {
+        // collision()
+        let rockComingAtMe = setInterval(() => {
+            obstacle(event);
+            collision()
+        }, 50)
+    } )
    
 })

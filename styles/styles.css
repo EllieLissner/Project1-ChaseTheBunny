@@ -1,6 +1,42 @@
-.test {
+
+
+
+.viewscreen {
+    border: solid black 2px;
+    width: 1000px;
+    height: 600px;
+    top: 10%;
+    left: 15%;
+    position: absolute;
+    overflow: hidden;
+    
+   
+}
+
+.dog {
     width: 100px;
     height: 100px;
     background-color: blueviolet;
     position: absolute;
+    top: 50%;
+    left: 20px;
+    
+    
+}
+
+
+.obst {
+    width: 100px;
+    height: 100px;
+    background-color: brown;
+    position: absolute;
+    top: 50%;
+    right: 200px;
+}
+
+@media screen and (min-width: 500px ) {
+    .viewscreen {
+        width: 800px;
+        left: 5%;
+    }
 }
