@@ -3,15 +3,13 @@ window.addEventListener("DOMContentLoaded", () => {
     let itsARock = document.querySelector(".obst")
     let dogPosition = dog.getBoundingClientRect()
     
-
-
     let y = 50
     let x = -100
     let upDownDog = null
+    let rockComingAtMe = null
 
     //dog vertical movement
     function move (event) {
-        
         if (event.key === 's') {
             y += 1 
             dog.style.top = y + '%'
@@ -24,45 +22,40 @@ window.addEventListener("DOMContentLoaded", () => {
    
     //obstacle movement
     function obstacle(event) {
-        if(event.key === "d" ) {
-            
+        if(event.key === "d" ) { 
             x += 10
-            itsARock.style.right = x + 'px'
-            
+            itsARock.style.right = x + 'px'  
         }
     }
-
+    
+    //when obstacle hits the dog
     function collision() {
         const rockPosition = itsARock.getBoundingClientRect()
-        console.log({dogPosition: dogPosition.top, rockPosition: rockPosition.top})
-        
         if (rockPosition.left < dogPosition.right &&
             rockPosition.bottom > dogPosition.top &&
             rockPosition.top < dogPosition.bottom &&
             rockPosition.right > dogPosition.left) {
-            console.log("its a hit")
+           clearInterval(rockComingAtMe)
         }
-        }
-    
+    }
 
-   //def use keydown for dog movement. 
+    //dog keystroke. 
     document.addEventListener('keydown', (event) => {
-        let upDownDog = setInterval(() => {
+        upDownDog = setInterval(() => {
             move(event)
-           
-           }, 10)
-        
+        }, 10)
+    })
+    
+    //dog stop
     document.addEventListener('keyup', () => {
         clearInterval(upDownDog)
     })
-    } )
-    collision()
+    
+    //obstacle keystroke
     document.addEventListener('keydown', (event) => {
-        // collision()
-        let rockComingAtMe = setInterval(() => {
+        rockComingAtMe = setInterval(() => {
             obstacle(event);
             collision()
         }, 50)
-    } )
-   
+    })
 })
