@@ -1,12 +1,14 @@
 window.addEventListener("DOMContentLoaded", () => {
     let dog = document.querySelector(".dog")
     let itsARock = document.querySelector(".obst")
+    let theBunny = document.querySelector(".bunny")
     let dogPosition = dog.getBoundingClientRect()
     
     let y = 50
     let x = -100
     let upDownDog = null
     let rockComingAtMe = null
+    let bunnyGone = null
 
     //dog vertical movement
     function move (event) {
@@ -27,15 +29,26 @@ window.addEventListener("DOMContentLoaded", () => {
             itsARock.style.right = x + 'px'  
         }
     }
+
+    function bunnyRuns () {
+        x -= 10
+        theBunny.style.right = x + 'px'
+    }
+    
+
     
     //when obstacle hits the dog
     function collision() {
         const rockPosition = itsARock.getBoundingClientRect()
+        
         if (rockPosition.left < dogPosition.right &&
             rockPosition.bottom > dogPosition.top &&
             rockPosition.top < dogPosition.bottom &&
             rockPosition.right > dogPosition.left) {
-           clearInterval(rockComingAtMe)
+            clearInterval(rockComingAtMe)
+            bunnyGone = setInterval(() => {
+                bunnyRuns()
+            }, 100)
         }
     }
 

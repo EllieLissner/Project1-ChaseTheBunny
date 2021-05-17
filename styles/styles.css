@@ -24,6 +24,15 @@
     
 }
 
+.bunny {
+    width: 30px;
+    height: 30px;
+    background-color: burlywood;
+    position: absolute;
+    top: 50%;
+    right: 50px;
+}
+
 
 .obst {
     width: 100px;
@@ -31,7 +40,7 @@
     background-color: brown;
     position: absolute;
     top: 50%;
-    right: 200px;
+    right: -100px;
 }
 
 @media screen and (min-width: 500px ) {
