@@ -40,7 +40,47 @@
     background-color: brown;
     position: absolute;
     top: 50%;
-    right: -100px;
+    right: 100px;
+}
+.obst2 {
+    width: 100px;
+    height: 100px;
+    background-color: brown;
+    position: absolute;
+    top: 0;
+    right: 500px;
+}
+.obst3 {
+    width: 100px;
+    height: 100px;
+    background-color: brown;
+    position: absolute;
+    top: 20%;
+    right: 300px;
+}
+.obst4 {
+    width: 100px;
+    height: 100px;
+    background-color: brown;
+    position: absolute;
+    top: 40%;
+    right: 400px;
+}
+.obst5 {
+    width: 100px;
+    height: 100px;
+    background-color: brown;
+    position: absolute;
+    top: 60%;
+    right: 300px;
+}
+.obst6 {
+    width: 100px;
+    height: 100px;
+    background-color: brown;
+    position: absolute;
+    top: 80%;
+    right: 400px;
 }
 
 .pointcounter {

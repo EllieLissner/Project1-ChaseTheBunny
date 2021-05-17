@@ -3,7 +3,11 @@ window.addEventListener("DOMContentLoaded", () => {
     let itsARock = document.querySelector(".obst")
     let theBunny = document.querySelector(".bunny")
     let pointCounter = document.querySelector(".pointcounter")
+    let viewscreen = document.querySelector(".viewscreen")
     
+    const rockPosition = itsARock.getBoundingClientRect()
+    let theBoundary = viewscreen.getBoundingClientRect()
+    let allTheNewRocks = document.createElement("div")
     let dogPosition = dog.getBoundingClientRect()
     let yAxisDogPosition = 50
     let xAxisRockPosition = -100
@@ -30,15 +34,16 @@ window.addEventListener("DOMContentLoaded", () => {
         if(event.key === "d" ) { 
             xAxisRockPosition += 10
             itsARock.style.right = xAxisRockPosition + 'px'  
-        }
+        }  
     }
 
+    // bunny movement
     function bunnyRuns () {
         xAxisBunnyPosition -= 10
         theBunny.style.right = xAxisBunnyPosition + 'px'
     }
     
-
+    
     
     //when obstacle hits the dog
     function collision() {
@@ -48,11 +53,10 @@ window.addEventListener("DOMContentLoaded", () => {
             rockPosition.bottom > dogPosition.top &&
             rockPosition.top < dogPosition.bottom &&
             rockPosition.right > dogPosition.left) {
-            console.log(itsARock.getBoundingClientRect())
-                clearInterval(rockComingAtMe)
+            clearInterval(rockComingAtMe)
             bunnyGone = setInterval(() => {
                 bunnyRuns()
-            }, 100)
+            }, 50)
         }
     }
 
@@ -76,10 +80,13 @@ window.addEventListener("DOMContentLoaded", () => {
     //obstacle keystroke
     document.addEventListener('keydown', (event) => {
         rockComingAtMe = setInterval(() => {
-            obstacle(event);
+            obstacle(event)
             collision()
             pointIncrease()
         }, 50)
-        
-    })
+        setTimeout(()=> {
+            itsARock.remove()
+        }, 2000)
+      })
+
 })
