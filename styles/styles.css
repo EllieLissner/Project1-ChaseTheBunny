@@ -54,6 +54,29 @@
     
 }
 
+.gameover {
+    position: absolute;
+    width: 400px;
+    height: 150px;
+    background-color: cadetblue;
+    top: 30%;
+    right: 25%;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 40px;
+}
+
+.replay {
+    position: absolute;
+    background-color: crimson;
+    height: 100px;
+    width: 200px;
+    border-radius: 20px;
+    top: 60%;
+    right: 38%;
+    font-size: 30px;
+}
+
 @media screen and (min-width: 500px ) {
     .viewscreen {
         width: 800px;
