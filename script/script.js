@@ -107,16 +107,18 @@ window.addEventListener("DOMContentLoaded", () => {
     //     setTimeout(()=> {
     //         itsARock.remove()
     //     }, 4500)
-    //   })
+    //   })d
 
     document.addEventListener('keydown', (event) => {
         console.log(event.key)
         if (event.key === 'd') {
-            spawnDiv()
-        }
-    })
+            let runningAcrossTheBoard = setInterval(() => {
+                spawnDiv()
+            }, 900)
+        } 
+    })  
 
 
-    })
+})
 
 
