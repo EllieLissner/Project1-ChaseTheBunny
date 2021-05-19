@@ -13,6 +13,10 @@
    
 }
 
+.startbutton {
+    position: absolute;
+}
+
 .dog {
     width: 100px;
     height: 100px;
@@ -64,6 +68,7 @@
     border-radius: 20px;
     text-align: center;
     font-size: 40px;
+    
 }
 
 .replay {
@@ -75,6 +80,7 @@
     top: 60%;
     right: 38%;
     font-size: 30px;
+    display: none;
 }
 
 @media screen and (min-width: 500px ) {

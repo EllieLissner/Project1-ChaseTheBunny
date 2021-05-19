@@ -3,6 +3,8 @@ window.addEventListener("DOMContentLoaded", () => {
     let theBunny = document.querySelector(".bunny")
     let pointCounter = document.querySelector(".pointcounter")
     let viewPort = document.querySelector(".viewscreen")
+    let replayBtn = document.querySelector(".replay")
+    let startBtn = document.querySelector(".startbutton")
     
     let dogPosition = dog.getBoundingClientRect()
     let yAxisDogPosition = 50
@@ -11,6 +13,7 @@ window.addEventListener("DOMContentLoaded", () => {
     let bunnyGone = null
     let counter = 0
     let rockCollision = false
+    
 
     //rock spawn
     function spawnDiv() {
@@ -54,13 +57,14 @@ window.addEventListener("DOMContentLoaded", () => {
     function gameOver() {
         if (rockCollision === true) {
             let gameStats = document.createElement("div")
-            let replayBtn = document.createElement('button')
+            
             gameStats.setAttribute("class", "gameover")
-            replayBtn.setAttribute("class", "replay")
+            
             viewPort.appendChild(gameStats)
             viewPort.appendChild(replayBtn)
+            replayBtn.style.display = 'block'
             gameStats.innerText = `Oh no! The bunny got away!\nYour Score was ${counter}`
-            replayBtn.innerText =  `Play Again?`
+            
         }
     }
 
@@ -72,7 +76,7 @@ window.addEventListener("DOMContentLoaded", () => {
     
     
     
-    //when obstacle hits the dog
+    //when obstacle hits the dog and bunny runs away
     function collision(KONG, BONE) {
         const rockPosition = KONG.getBoundingClientRect()
         
@@ -82,7 +86,11 @@ window.addEventListener("DOMContentLoaded", () => {
             rockPosition.right > dogPosition.left) {
             clearInterval(BONE)
             bunnyGone = setInterval(() => {
-                bunnyRuns()
+                if (rockCollision === false){
+                    clearInterval(bunnyGone)
+                } else {
+                    bunnyRuns()
+                }
             }, 50)
             rockCollision = true
         }
@@ -122,6 +130,23 @@ window.addEventListener("DOMContentLoaded", () => {
         } 
     })  
 
+
+    replayBtn.addEventListener('click', () => {
+        rockCollision = false
+        counter = 0
+        pointCounter.innerText = `Points: 0`
+        xAxisBunnyPosition = 50
+        theBunny.style.right = 50 + 'px'
+        theBunny.style.top = 50 + '%'
+        replayBtn.style.display = 'none'
+        document.querySelector(".gameover").remove()
+        document.querySelectorAll(".rock").forEach((blahblahblah) => {
+            blahblahblah.remove()
+        })
+        console.log("hi")
+        
+    })
+         
 
 })
 
