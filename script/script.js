@@ -36,7 +36,7 @@ window.addEventListener("DOMContentLoaded", () => {
             clearInterval(newRockMoves)
             aNewRock.remove()
             
-        }, 4000);
+        }, 5000);
         viewPort.appendChild(aNewRock)
     }
 
@@ -117,17 +117,16 @@ window.addEventListener("DOMContentLoaded", () => {
     })
     
     // start rock movement
-    document.addEventListener('keydown', (event) => {
-        console.log(event.key)
-        if (event.key === 'd') {
-            let runningAcrossTheBoard = setInterval(() => {
-                spawnDiv()
-                gameOver()
-                if (rockCollision === true) {
-                    clearInterval(runningAcrossTheBoard)
-                }
-            }, 900)
-        } 
+    startBtn.addEventListener('click', () => {
+        let runningAcrossTheBoard = setInterval(() => {
+            spawnDiv()
+            gameOver()
+            if (rockCollision === true) {
+                clearInterval(runningAcrossTheBoard)
+            }
+        }, 900)  
+        
+        spawnDiv()  
     })  
 
 
