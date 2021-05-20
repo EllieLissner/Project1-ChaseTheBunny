@@ -18,8 +18,9 @@ window.addEventListener("DOMContentLoaded", () => {
     //rock spawn
     function spawnDiv() {
         let xAxisRockPosition = -100
-        let aNewRock = document.createElement("div")
+        let aNewRock = document.createElement("img")
         aNewRock.setAttribute("class", "rock")
+        aNewRock.setAttribute("src", "images/Rock.png")
         aNewRock.style.top = Math.random() * 100 + '%'
         aNewRock.style.right = xAxisRockPosition + "px"
         let newRockMoves = setInterval(() => {
@@ -63,8 +64,8 @@ window.addEventListener("DOMContentLoaded", () => {
             viewPort.appendChild(gameStats)
             viewPort.appendChild(replayBtn)
             replayBtn.style.display = 'block'
-            gameStats.innerText = `Oh no! The bunny got away!\nYour Score was ${counter}`
-            
+            gameStats.innerText = 
+                `Oh no! The bunny got away!\nYour Score was ${counter}`
         }
     }
 
@@ -129,13 +130,13 @@ window.addEventListener("DOMContentLoaded", () => {
         spawnDiv()  
     })  
 
-
+    //Play again button function
     replayBtn.addEventListener('click', () => {
         rockCollision = false
         counter = 0
         pointCounter.innerText = `Points: 0`
-        xAxisBunnyPosition = 50
-        theBunny.style.right = 50 + 'px'
+        xAxisBunnyPosition = 90
+        theBunny.style.right = 90 + 'px'
         theBunny.style.top = 50 + '%'
         replayBtn.style.display = 'none'
         document.querySelector(".gameover").remove()

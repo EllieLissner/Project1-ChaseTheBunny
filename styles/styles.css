@@ -1,5 +1,9 @@
 
 
+@keyframes bg {
+0%{background-position: 0 0;}
+100%{background-position: -804px 0;}
+}
 
 .viewscreen {
     border: solid black 2px;
@@ -9,39 +13,68 @@
     left: 15%;
     position: absolute;
     overflow: hidden;
+    background-image: url('../images/background.jpg');
+    background-size: cover;
+    animation: bg 3.8s linear infinite;
+    animation-play-state: running;
     
-   
 }
+
+.viewscreen.playing {
+    /* animation: moveBackground; */
+}
+
+/*
+start with creating a css animation
+-- animate the background-position
+sync it with rock movement
+add playing class on start
+remove playing class on collision
+*/
 
 .startbutton {
     position: absolute;
+    
 }
 
 .dog {
-    width: 100px;
-    height: 100px;
-    background-color: blueviolet;
     position: absolute;
+    
+    width: 100px;
+    height: 40px;
     top: 50%;
-    left: 20px;
-    
-    
+    left: 60px; 
+
+}
+
+.dog img {
+    width: 190px;
+    height: 90px;
+    object-fit: cover;
+    position: absolute;
+    right: -40px; 
+    top: -15px;   
 }
 
 .bunny {
-    width: 30px;
-    height: 30px;
-    background-color: burlywood;
     position: absolute;
     top: 50%;
-    right: 50px;
+    right: 90px
+}
+
+.rabbitimg {
+    width: 60px;
+    height: 60px;
+    transform: rotateY(180deg);
+    position: absolute;
+    top: 55%;
+    right: -50px;
 }
 
 
 .rock {
     width: 100px;
     height: 100px;
-    background-color: brown;
     position: absolute;
     top: 50%;
     right: 100px;
@@ -49,12 +82,17 @@
 
 
 .pointcounter {
-    width: 100px;
+    width: 125px;
     height: 50px;
     background-color: coral;
     position: absolute;
     right: 0px;
     font-family: monospace;
+    margin: 10px;
+    border-radius: 20px;
+    text-align: center;
+   line-height: 50px;
+    
     
 }
 
