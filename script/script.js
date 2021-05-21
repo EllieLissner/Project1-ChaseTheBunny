@@ -24,24 +24,25 @@ window.addEventListener("DOMContentLoaded", () => {
         aNewRock.setAttribute("src", "images/Rock.png")
         aNewRock.style.top = Math.random() * 100 + '%'
         aNewRock.style.right = xAxisRockPosition + "px"
+        
         let newRockMoves = setInterval(() => {
             xAxisRockPosition += 1
             aNewRock.style.right = xAxisRockPosition + "px"
             collision(aNewRock, newRockMoves)
             pointIncrease()
-            
             if (rockCollision === true) {
                 clearInterval(newRockMoves)
                 clearTimeout(killRock)
             }
         }, .1);
+        
         let killRock = setTimeout(() => {
             clearInterval(newRockMoves)
             aNewRock.remove()
             
         }, 5000);
-        viewPort.appendChild(aNewRock)
         
+        viewPort.appendChild(aNewRock)  
     }
 
     //dog vertical movement
@@ -50,18 +51,10 @@ window.addEventListener("DOMContentLoaded", () => {
             if (yAxisDogPosition < 95) {
                 yAxisDogPosition += 1 
                 dog.style.top = yAxisDogPosition + '%'}
-                // else {
-                //     yAxisDogPosition -= 1
-                //     dog.style.top = yAxisDogPosition + 'px'
-                // }
         } else if (event.key === 'w') {
             if (yAxisDogPosition > 0) {
                 yAxisDogPosition -= 1
                 dog.style.top = yAxisDogPosition + '%'}
-                // else {
-                //     yAxisDogPosition += 1
-                //     dog.style.top = yAxisDogPosition + 'px'
-                // }
          } 
         dogPosition = dog.getBoundingClientRect()
     }
@@ -92,14 +85,14 @@ window.addEventListener("DOMContentLoaded", () => {
     
     
     //when obstacle hits the dog and bunny runs away
-    function collision(allTheRocks, dogMovement) {
-        const rockPosition = allTheRocks.getBoundingClientRect()
+    function collision(rockParameter,rockMoveParameter) {
+        const rockPosition = rockParameter.getBoundingClientRect()
         
         if (rockPosition.left < dogPosition.right &&
             rockPosition.bottom > dogPosition.top &&
             rockPosition.top < dogPosition.bottom &&
             rockPosition.right > dogPosition.left) {
-            clearInterval(dogMovement)
+            clearInterval(rockMoveParameter)
             bunnyGone = setInterval(() => {
                 if (rockCollision === false){
                     clearInterval(bunnyGone)
@@ -158,13 +151,10 @@ window.addEventListener("DOMContentLoaded", () => {
         document.querySelectorAll(".rock").forEach((rockOnScreen) => {
             rockOnScreen.remove()
         })
-        console.log("hi")
         startBtn.style.display = "block"
-        startBtn.style.top = 50 + "%"
-        
+        startBtn.style.top = 40 + "%" 
+        startBtn.style.left = 38 + "%" 
     })
-         
-
 })
 
 
