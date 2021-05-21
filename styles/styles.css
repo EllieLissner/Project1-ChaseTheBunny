@@ -37,8 +37,8 @@
 }
 
 .viewscreen {
-    border: solid black 2px;
-    /* margin: auto; */
+    border: solid black 10px;
+    border-image: linear-gradient(45deg, #42CAFD, #F59C5A, #594157) 1;
     width: 800px;
     max-width: 100%;
     height: 600px;
@@ -97,7 +97,7 @@
 
 
 .pointcounter {
-    width: 125px;
+    width: 140px;
     height: 50px;
     background-color: #594157;
     position: absolute;
