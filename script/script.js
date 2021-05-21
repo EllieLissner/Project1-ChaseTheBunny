@@ -67,7 +67,7 @@ window.addEventListener("DOMContentLoaded", () => {
         dogPosition = dog.getBoundingClientRect()
     }
    
-    // Game over and Replay box spawnw
+    // Game over and Replay box spawn
     function gameOver() {
         if (rockCollision === true) {
             let gameStats = document.createElement("div")
