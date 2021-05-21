@@ -51,15 +51,22 @@ window.addEventListener("DOMContentLoaded", () => {
             if (yAxisDogPosition < 95) {
                 yAxisDogPosition += 1 
                 dog.style.top = yAxisDogPosition + '%'}
+            else if (yAxisDogPosition >= 95) {
+                yAxisDogPosition = 94
+                dog.style.top = yAxisDogPosition + '%'
+            }    
         } else if (event.key === 'w') {
             if (yAxisDogPosition > 0) {
                 yAxisDogPosition -= 1
                 dog.style.top = yAxisDogPosition + '%'}
+            else if (yAxisDogPosition <= 0) {
+                yAxisDogPosition = 1
+                dog.style.top = yAxisDogPosition + '%'
+            }
          } 
         dogPosition = dog.getBoundingClientRect()
     }
    
-    
     // Game over and Replay box spawnw
     function gameOver() {
         if (rockCollision === true) {
@@ -81,8 +88,6 @@ window.addEventListener("DOMContentLoaded", () => {
         xAxisBunnyPosition -= 10
         theBunny.style.right = xAxisBunnyPosition + 'px'
     }
-    
-    
     
     //when obstacle hits the dog and bunny runs away
     function collision(rockParameter,rockMoveParameter) {
