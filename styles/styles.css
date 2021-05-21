@@ -47,7 +47,7 @@
     position: absolute;
     overflow: hidden;
     background-image: url('../images/background.jpg');
-    background-size: cover;
+    background-size: 200px 400px;
     animation: bg 3.2s linear infinite;
     animation-play-state: paused;   
 }
