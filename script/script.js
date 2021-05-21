@@ -5,7 +5,8 @@ window.addEventListener("DOMContentLoaded", () => {
     let viewPort = document.querySelector(".viewscreen")
     let replayBtn = document.querySelector(".replay")
     let startBtn = document.querySelector(".startbutton")
-    
+    let instructions = document.querySelector(".inst")
+
     let dogPosition = dog.getBoundingClientRect()
     let yAxisDogPosition = 50
     let xAxisBunnyPosition = 50
@@ -24,46 +25,51 @@ window.addEventListener("DOMContentLoaded", () => {
         aNewRock.style.top = Math.random() * 100 + '%'
         aNewRock.style.right = xAxisRockPosition + "px"
         let newRockMoves = setInterval(() => {
-            xAxisRockPosition += 10
+            xAxisRockPosition += 1
             aNewRock.style.right = xAxisRockPosition + "px"
             collision(aNewRock, newRockMoves)
             pointIncrease()
+            
             if (rockCollision === true) {
                 clearInterval(newRockMoves)
                 clearTimeout(killRock)
             }
-        }, 50);
+        }, .1);
         let killRock = setTimeout(() => {
             clearInterval(newRockMoves)
             aNewRock.remove()
             
         }, 5000);
         viewPort.appendChild(aNewRock)
+        
     }
 
     //dog vertical movement
     function move(event) {
         if (event.key === 's') {
-            yAxisDogPosition += 1 
-            dog.style.top = yAxisDogPosition + '%'
+            if (yAxisDogPosition < 95) {
+                yAxisDogPosition += 1 
+                dog.style.top = yAxisDogPosition + '%'}
         } else if (event.key === 'w') {
-            yAxisDogPosition -= 1
-            dog.style.top = yAxisDogPosition + '%'
-        }
+            if (yAxisDogPosition > 0) {
+                yAxisDogPosition -= 1
+                dog.style.top = yAxisDogPosition + '%'}
+         } 
         dogPosition = dog.getBoundingClientRect()
     }
    
     
-    // Game over and Replay box spawn
+    // Game over and Replay box spawnw
     function gameOver() {
         if (rockCollision === true) {
             let gameStats = document.createElement("div")
-            
+            viewPort.style.animationPlayState = "paused"
             gameStats.setAttribute("class", "gameover")
             
             viewPort.appendChild(gameStats)
             viewPort.appendChild(replayBtn)
             replayBtn.style.display = 'block'
+            gameStats.style.fontFamily = "'Love Ya Like A Sister', cursive"
             gameStats.innerText = 
                 `Oh no! The bunny got away!\nYour Score was ${counter}`
         }
@@ -117,7 +123,7 @@ window.addEventListener("DOMContentLoaded", () => {
         clearInterval(upDownDog)
     })
     
-    // start rock movement
+    // start rock movement and start buttom
     startBtn.addEventListener('click', () => {
         let runningAcrossTheBoard = setInterval(() => {
             spawnDiv()
@@ -126,8 +132,9 @@ window.addEventListener("DOMContentLoaded", () => {
                 clearInterval(runningAcrossTheBoard)
             }
         }, 900)  
-        
-        spawnDiv()  
+        viewPort.style.animationPlayState = "running"
+        startBtn.style.display = "none"
+        instructions.style.display = "none"
     })  
 
     //Play again button function
@@ -144,6 +151,8 @@ window.addEventListener("DOMContentLoaded", () => {
             blahblahblah.remove()
         })
         console.log("hi")
+        startBtn.style.display = "block"
+        startBtn.style.top = 50 + "%"
         
     })
          

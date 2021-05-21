@@ -1,4 +1,35 @@
 
+.inst {
+    position: absolute;
+    font-family: 'Love Ya Like A Sister', cursive;;
+    font-size: 20px;
+    width: 600px;
+    height: 140px;
+    text-align: center;
+    top: 25%;
+    left: 12%;
+    
+}
+
+.title {
+    font-family: 'Frijole', cursive;
+    font-size: 50px;
+    color: #235789;
+}
+
+.startbutton {
+    position: absolute;
+    font-family: 'Love Ya Like A Sister', cursive;
+    font-size: 20px;
+    width: 170px;
+    height: 50px;
+    top: 50%;
+    left: 40%;
+    border-radius: 20px;
+    background-color: #F59C5A;
+    border-color: #F59C5A;
+    border-style: solid;
+}
 
 @keyframes bg {
 0%{background-position: 0 0;}
@@ -15,26 +46,8 @@
     overflow: hidden;
     background-image: url('../images/background.jpg');
     background-size: cover;
-    animation: bg 3.8s linear infinite;
-    animation-play-state: running;
-    
-}
-
-.viewscreen.playing {
-    /* animation: moveBackground; */
-}
-
-/*
-start with creating a css animation
--- animate the background-position
-sync it with rock movement
-add playing class on start
-remove playing class on collision
-*/
-
-.startbutton {
-    position: absolute;
-    
+    animation: bg 3.2s linear infinite;
+    animation-play-state: paused;   
 }
 
 .dog {
@@ -84,7 +97,7 @@ remove playing class on collision
 .pointcounter {
     width: 125px;
     height: 50px;
-    background-color: coral;
+    background-color: #594157;
     position: absolute;
     right: 0px;
     font-family: monospace;
@@ -92,7 +105,7 @@ remove playing class on collision
     border-radius: 20px;
     text-align: center;
    line-height: 50px;
-    
+    color: #42CAFD;
     
 }
 
@@ -100,7 +113,7 @@ remove playing class on collision
     position: absolute;
     width: 400px;
     height: 150px;
-    background-color: cadetblue;
+    background-color: #7D8CC4;
     top: 30%;
     right: 25%;
     border-radius: 20px;
@@ -111,14 +124,17 @@ remove playing class on collision
 
 .replay {
     position: absolute;
-    background-color: crimson;
+    background-color: #726DA8;
     height: 100px;
     width: 200px;
     border-radius: 20px;
+    border-color: #726DA8;
+    border-style: solid;
     top: 60%;
     right: 38%;
     font-size: 30px;
     display: none;
+    font-family: 'Love Ya Like A Sister', cursive;
 }
 
 @media screen and (min-width: 500px ) {
