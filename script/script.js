@@ -40,7 +40,7 @@ window.addEventListener("DOMContentLoaded", () => {
             clearInterval(newRockMoves)
             aNewRock.remove()
             
-        }, 5000);
+        }, 4000);
         
         viewPort.appendChild(aNewRock)  
     }
@@ -129,7 +129,7 @@ window.addEventListener("DOMContentLoaded", () => {
         clearInterval(upDownDog)
     })
     
-    // start rock movement and start buttom
+    // start rock movement and start button (this is where we can target difficulty)
     startBtn.addEventListener('click', () => {
         let runningAcrossTheBoard = setInterval(() => {
             spawnDiv()
@@ -137,7 +137,7 @@ window.addEventListener("DOMContentLoaded", () => {
             if (rockCollision === true) {
                 clearInterval(runningAcrossTheBoard)
             }
-        }, 900)  
+        }, 500)  
         viewPort.style.animationPlayState = "running"
         startBtn.style.display = "none"
         instructions.style.display = "none"
