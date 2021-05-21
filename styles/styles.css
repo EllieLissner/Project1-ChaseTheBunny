@@ -38,10 +38,12 @@
 
 .viewscreen {
     border: solid black 2px;
-    width: 1000px;
+    /* margin: auto; */
+    width: 800px;
+    max-width: 100%;
     height: 600px;
     top: 10%;
-    left: 15%;
+    left: 29%;
     position: absolute;
     overflow: hidden;
     background-image: url('../images/background.jpg');
@@ -55,7 +57,7 @@
     
     width: 100px;
     height: 40px;
-    top: 50%;
+    top: 300px;
     left: 60px; 
 
 }
@@ -112,15 +114,16 @@
 
 .gameover {
     position: absolute;
-    width: 400px;
-    height: 150px;
+    width: 450px;
+    height: 200px;
     background-color: #7D8CC4;
-    top: 30%;
-    right: 25%;
+    top: 20%;
+    right: 20%;
     border-radius: 20px;
     text-align: center;
     font-size: 40px;
-    
+    line-height: 60px;
+    padding: 20px;
 }
 
 .replay {
@@ -131,16 +134,20 @@
     border-radius: 20px;
     border-color: #726DA8;
     border-style: solid;
-    top: 60%;
+    top: 65%;
     right: 38%;
     font-size: 30px;
     display: none;
     font-family: 'Love Ya Like A Sister', cursive;
 }
 
-@media screen and (min-width: 500px ) {
+@media screen and (max-width: 1000px ) {
+   
     .viewscreen {
         width: 800px;
-        left: 5%;
+        margin: 0 auto;
+        left: 6%;
+
     }
+
 }

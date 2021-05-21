@@ -50,10 +50,18 @@ window.addEventListener("DOMContentLoaded", () => {
             if (yAxisDogPosition < 95) {
                 yAxisDogPosition += 1 
                 dog.style.top = yAxisDogPosition + '%'}
+                // else {
+                //     yAxisDogPosition -= 1
+                //     dog.style.top = yAxisDogPosition + 'px'
+                // }
         } else if (event.key === 'w') {
             if (yAxisDogPosition > 0) {
                 yAxisDogPosition -= 1
                 dog.style.top = yAxisDogPosition + '%'}
+                // else {
+                //     yAxisDogPosition += 1
+                //     dog.style.top = yAxisDogPosition + 'px'
+                // }
          } 
         dogPosition = dog.getBoundingClientRect()
     }
@@ -84,14 +92,14 @@ window.addEventListener("DOMContentLoaded", () => {
     
     
     //when obstacle hits the dog and bunny runs away
-    function collision(KONG, BONE) {
-        const rockPosition = KONG.getBoundingClientRect()
+    function collision(allTheRocks, dogMovement) {
+        const rockPosition = allTheRocks.getBoundingClientRect()
         
         if (rockPosition.left < dogPosition.right &&
             rockPosition.bottom > dogPosition.top &&
             rockPosition.top < dogPosition.bottom &&
             rockPosition.right > dogPosition.left) {
-            clearInterval(BONE)
+            clearInterval(dogMovement)
             bunnyGone = setInterval(() => {
                 if (rockCollision === false){
                     clearInterval(bunnyGone)
@@ -147,8 +155,8 @@ window.addEventListener("DOMContentLoaded", () => {
         theBunny.style.top = 50 + '%'
         replayBtn.style.display = 'none'
         document.querySelector(".gameover").remove()
-        document.querySelectorAll(".rock").forEach((blahblahblah) => {
-            blahblahblah.remove()
+        document.querySelectorAll(".rock").forEach((rockOnScreen) => {
+            rockOnScreen.remove()
         })
         console.log("hi")
         startBtn.style.display = "block"
